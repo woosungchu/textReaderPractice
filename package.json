@@ -1,0 +1,22 @@
+{
+  "name": "text_reader",
+  "version": "1.0.0",
+  "description": "text reader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woosungchu/textReaderPractice.git"
+  },
+  "author": "woosungchu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woosungchu/textReaderPractice/issues"
+  },
+  "homepage": "https://github.com/woosungchu/textReaderPractice#readme",
+  "dependencies": {
+    "say": "^0.15.0"
+  }
+}
