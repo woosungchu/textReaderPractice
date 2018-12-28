@@ -1,32 +1,29 @@
 const say = require('say')
+const fs = require('fs')
 
-// Use default system voice and speed
-say.speak('Hello!')
+if (process.argv.length < 3) {
+  console.log('Usage: node ' + process.argv[1] + ' FILENAME');
+  process.exit(1);
+}
+// Read the file and print its contents.
 
-// Stop the text currently being spoken
-say.stop()
+var filename = process.argv[2];
+let speed = 1.2;
 
-// More complex example (with an OS X voice) and slow speed
-say.speak("What's up, dog?", 'Alex', 0.5)
+fs.readFile(filename, 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log('OK: ' + filename);
+  say.speak(data, 'reader.voice', speed);
 
-// Fire a callback once the text has completed being spoken
-say.speak("What's up, dog?", 'Good News', 1.0, (err) => {
-  if (err) {
-    return console.error(err)
-  }
+  setTimeout(() => {
+    console.log('prematurely killing speech')
 
-  console.log('Text has been spoken.')
+    say.stop((err) => {
+      if (err) {
+        return console.error('unable to stop speech', err)
+      }
+
+      console.log('stopped')
+    })
+}, 7 * 1000)
 });
-
-// Export spoken audio to a WAV file
-say.export("I'm sorry, Dave.", 'Cellos', 0.75, 'hal.wav', (err) => {
-  if (err) {
-    return console.error('err')
-  }
-
-  console.log('Text has been saved to hal.wav.')
-})
-
-/*
-console.log('text 1')
-*/
