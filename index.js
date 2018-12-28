@@ -4,9 +4,7 @@ const say = require('say')
 say.speak('Hello!')
 
 // Stop the text currently being spoken
-//say.stop()
-
-
+say.stop()
 
 // More complex example (with an OS X voice) and slow speed
 say.speak("What's up, dog?", 'Alex', 0.5)
@@ -20,8 +18,6 @@ say.speak("What's up, dog?", 'Good News', 1.0, (err) => {
   console.log('Text has been spoken.')
 });
 
-console.log('text 1')
-/*
 // Export spoken audio to a WAV file
 say.export("I'm sorry, Dave.", 'Cellos', 0.75, 'hal.wav', (err) => {
   if (err) {
@@ -31,4 +27,6 @@ say.export("I'm sorry, Dave.", 'Cellos', 0.75, 'hal.wav', (err) => {
   console.log('Text has been saved to hal.wav.')
 })
 
+/*
+console.log('text 1')
 */
